@@ -3,7 +3,7 @@ import { getPokemonTypes } from '../services/pokeapi';  // Asegúrate de importa
 
 const PokemonSelector = () => {
   const [types, setTypes] = useState([]);
-  const [selectedType, setSelectedType] = useState('');
+  const [firstType, setfirstType] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,14 +14,14 @@ const PokemonSelector = () => {
   }, []);
 
   const handleSelectChange = (event) => {
-    setSelectedType(event.target.value);
+    setfirstType(event.target.value);
   };
 
   return (
     <div>
       <h1>Select Pokémon Type</h1>
       <label>Choose Type: </label>
-      <select className="pokemon1" value={selectedType} onChange={handleSelectChange}>
+      <select className="pokemon1" value={firstType} onChange={handleSelectChange}>
         <option value="">-- select --</option>
         {types.map((type) => (
           <option key={type.name} value={type.name}>
@@ -29,9 +29,9 @@ const PokemonSelector = () => {
           </option>
         ))}
       </select>
-      {selectedType && (
+      {firstType && (
         <div>
-          <h2>You selected the type: {selectedType}</h2>
+          <h2>You selected the type: {firstType}</h2>
         </div>
       )}
     </div>
