@@ -1,28 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { getPokemonList } from './services/pokeapi';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import './App.css';
 
 const App = () => {
-  const [pokemons, setPokemons] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getPokemonList();
-      setPokemons(data);
-    };
-    fetchData();
-  }, []);
-
   return (
-    <div>
-      <h1>Pokémon List</h1>
-      <ul>
-        {pokemons.map(pokemon => (
-          <li key={pokemon.name}>{pokemon.name}</li>
-        ))}
-      </ul>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <a href="/">Home</a>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
 export default App;
-
