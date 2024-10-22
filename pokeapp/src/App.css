@@ -1,42 +1,4 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/* Estilos globales */
 body {
 	font-family: 'Arial', sans-serif;
 	background-color: #f5f5f5;
@@ -44,6 +6,46 @@ body {
 	padding: 20px;
   }
   
+  .App {
+	text-align: center;
+  }
+  
+  .App-logo {
+	height: 40vmin;
+	pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+	.App-logo {
+	  animation: App-logo-spin infinite 20s linear;
+	}
+  }
+  
+  .App-header {
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
+  }
+  
+  .App-link {
+	color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+	from {
+	  transform: rotate(0deg);
+	}
+	to {
+	  transform: rotate(360deg);
+	}
+  }
+  
+  /* Estilos de encabezado */
   h1 {
 	color: #333;
 	text-align: center;
@@ -54,6 +56,7 @@ body {
 	text-align: center;
   }
   
+  /* Navegación */
   nav {
 	display: flex;
 	justify-content: center;
@@ -72,15 +75,110 @@ body {
 	color: #0056b3;
   }
   
+  /* Estilos para selectores */
   select {
-	padding: 10px;
+	padding: 8px;
 	font-size: 16px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	margin-top: 10px;
+	width: 150px; /* Ancho fijo para selectores */
   }
   
-  .pokemon1 {
-	width: 250px;
+  /* Estilos para grupos de formulario */
+  .form-group {
+	display: flex;
+	align-items: center; /* Alinea verticalmente el label con el textarea */
+	margin-bottom: 15px;
+	gap: 15px; /* Espacio entre label y textarea */
   }
+  
+  label {
+	font-weight: bold;
+	font-size: 18px;
+	text-align: center; /* Centra el texto dentro del label */
+	white-space: nowrap; /* Evita que el texto del label se divida en varias líneas */
+  }
+  
+  textarea {
+	width: 100%;
+	max-width: 250px; /* Ajustado para ser más responsivo */
+	min-width: 100px; /* Ancho mínimo */
+	height: 100px; /* Altura adecuada */
+	padding: 10px;
+	font-family: 'Arial', sans-serif;
+	font-size: 16px;
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+	transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	resize: vertical; /* Permite el cambio de tamaño vertical */
+	outline: none;
+	margin-top: 10px;
+	text-align: center;
+  }
+  
+  textarea:focus {
+	border-color: #66afe9;
+	box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+  }
+  
+  textarea::placeholder {
+	color: #888;
+	font-style: italic;
+  }
+  
+ /* Estilo del botón */
+button {
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 8px 15px; /* Ajusta el padding para hacerlo más pequeño */
+	font-size: 14px; /* Reduce el tamaño de la fuente */
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	margin-top: 15px;
+  }
+  
+  button:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+	background-color: #0056b3;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+	.form-group {
+	  flex-direction: column; /* Coloca el label y el textarea en columna en pantallas pequeñas */
+	  align-items: center; /* Alinea ambos en el centro de manera vertical y horizontal */
+	}
+  
+	textarea {
+	  max-width: 100%; /* Ocupa todo el ancho disponible */
+	  height: 100px; /* Altura menor en pantallas pequeñas */
+	}
+  
+	label {
+	  font-size: 16px; /* Texto del label más pequeño en pantallas pequeñas */
+	}
+  
+	select {
+	  width: 100%; /* Selector ocupa el ancho completo en móviles */
+	}
+  
+	button {
+	  padding: 10px 15px; /* Espaciado reducido en móviles */
+	}
+  
+	h1 {
+	  font-size: 20px; /* Tamaño de fuente más pequeño en móviles */
+	}
+  }
+
   
