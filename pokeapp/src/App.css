@@ -104,7 +104,7 @@ body {
 	width: 100%;
 	max-width: 250px; /* Ajustado para ser más responsivo */
 	min-width: 100px; /* Ancho mínimo */
-	height: 100px; /* Altura adecuada */
+	height: 25px; /* Altura adecuada */
 	padding: 10px;
 	font-family: 'Arial', sans-serif;
 	font-size: 16px;
@@ -115,7 +115,7 @@ body {
 	resize: vertical; /* Permite el cambio de tamaño vertical */
 	outline: none;
 	margin-top: 10px;
-	text-align: center;
+	text-align: left;
   }
   
   textarea:focus {
