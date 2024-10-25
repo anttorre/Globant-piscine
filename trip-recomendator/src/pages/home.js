@@ -15,42 +15,43 @@ L.Icon.Default.mergeOptions({
 const Home = () => {
   const [destination, setDestination] = useState('');
   const [error, setError] = useState('');
-  const [recommendations, setRecommendations] = useState([]); // Cambiamos a un array
+  const [recommendations, setRecommendations] = useState([]);
 
   const handleSubmit = async () => {
-	if (!destination) {
-	  setError('Please fill in all fields before submitting.');
-	  return;
-	}
+    if (!destination) {
+      setError('Please fill in all fields before submitting.');
+      return;
+    }
   
-	setError('');
-	setRecommendations([]);
+    setError('');
+    setRecommendations([]);
   
-	try {
-	  const response = await fetch('http://localhost:5000/api/recommendations', {
-		method: 'POST',
-		headers: {
-		  'Content-Type': 'application/json',
-		},
-		body: JSON.stringify({ destination }), // Enviar el destino al servidor
-	  });
+    try {
+      const response = await fetch('http://localhost:5000/api/recommendations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ destination }), // Enviar el destino al servidor
+      });
   
-	  if (!response.ok) {
-		throw new Error('Network response was not ok');
-	  }
+      if (!response.ok) {
+        const errorMessage = await response.text(); // Capturar el mensaje de error
+        throw new Error(`Network response was not ok: ${errorMessage}`);
+      }
   
-	  const data = await response.json();
-	  console.log('API Response:', data);
+      const data = await response.json();
+      console.log('API Response:', data);
   
-	  if (data.recommendations) {
-		setRecommendations(data.recommendations);
-	  } else {
-		setError('No recommendations found.');
-	  }
-	} catch (err) {
-	  setError('Failed to fetch recommendations. Please try again later.');
-	  console.error(err);
-	}
+      if (data.recommendations) {
+        setRecommendations(data.recommendations);
+      } else {
+        setError('No recommendations found.');
+      }
+    } catch (err) {
+      setError(`Failed to fetch recommendations: ${err.message}`);
+      console.error(err);
+    }
   };
 
   return (
@@ -101,5 +102,4 @@ const Home = () => {
 };
 
 export default Home;
-
 //AIzaSyDxAuY57jN_1csCLNYF9a-AVAsxtxs_Bqo
