@@ -13,7 +13,7 @@ app.post('/api/recommendations', async (req, res) => {
 
   try {
     // Aquí es donde realizarías la solicitud a la IA Gemini
-    const response = await axios.post('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyDxAuY57jN_1csCLNYF9a-AVAsxtxs_Bqo', {
+    const response = await axios.post('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=', {
       destination,
       // Puedes agregar más datos si es necesario
     });
